@@ -4,7 +4,7 @@ import os
 from lib.models.user import User
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="session")
 def context_creation(playwright):
     headless_bool = False
     slowmo_value = 0
@@ -19,7 +19,7 @@ def context_creation(playwright):
     browser.close()
 
 
-@pytest.fixture()
+@pytest.fixture(scope="function")
 def home_page(context_creation, browser):
     context = browser.new_context(storage_state="state.json")
     page = context.new_page()
