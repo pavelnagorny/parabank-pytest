@@ -1,6 +1,7 @@
 from faker import Faker
 from dataclasses import dataclass
 
+
 @dataclass
 class User:
     firstname: str
