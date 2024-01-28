@@ -27,6 +27,6 @@ class User:
             zip_code=fake.zipcode(),
             phone_number=fake.phone_number(),
             ssn=fake.ssn(),
-            username=fake.lexify(text='??????????'),
+            username=fake.lexify(text='????????????'),
             password="test",
         )
