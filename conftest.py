@@ -1,7 +1,16 @@
+import logging as logger
 import pytest
 import os
 
-from lib.models.user import User
+from lib.helpers.common_helpers import *
+
+
+@pytest.fixture(scope="module")
+def new_user():
+    user = generate_user_data()
+    logger.info(f"Created user: {user}")
+    return user
+
 
 
 @pytest.fixture(scope="session")
@@ -28,7 +37,3 @@ def home_page(context_creation, browser):
     yield page
     page.close()
 
-
-@pytest.fixture(scope="module")
-def random_user():
-    return User.generate_random()
